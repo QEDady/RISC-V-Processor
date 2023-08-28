@@ -1,0 +1,33 @@
+lbu x1, 0(x0)
+lhu x2, 0(x0)
+lb x3, 0(x0)
+lh x4, 0(x0)
+lw x5, 4(x0)
+and x6, x1, x2
+xor x7, x5, x3
+xori, x1, x1, -1
+andi x6, x6, 25
+ori x7, x7, 7
+sb x7, 8(x0)
+sh x7, 12(x0)
+lw x8, 16(x0)
+lbu x9, 16(x0) 
+srai, x10, x8, 2
+sra, x11, x8, x9
+srli x12, x8,  4
+srl x13, x8, x9
+slli x14, x8, 2
+sll, x15, x8, x9
+bne x1, x0, L1
+addi x1, x1, 1
+L1: addi x1, x1, 5
+bltu x3, x0, L2
+lui x16, 0xffff
+L2: auipc x17, 1
+slt x18, x3, x0
+blt x0, x18, L3
+sltiu x19, x3, 0
+sltu x20, x3, x1
+L3: bge x0, x18, L2
+bgeu x0, x18, L2
+fence
